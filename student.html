@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JQuery - Add Edit Delete Table Row Example - NiceSnippets.com</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+   
+</head>
+<body>
+    <div class="container">
+        <h1>Student Management System</h1>
+        <form id="form" action="">
+
+            <div class="form-group">
+                <label>ID:</label>
+                <input type="number" name="id" class="form-control" value="" required="" min="1">
+            </div>
+
+            <div class="form-group">
+                <label>First Name:</label>
+                <input type="text" name="first-name" class="form-control" value="" required="" minlength="2" maxlength="100" id="firstName">
+            </div>
+
+            <div class="form-group">
+                <label>Last Name:</label>
+                <input type="text" name="last-name" class="form-control" value="" required="" minlength="3" maxlength="100" id="lastName">
+            </div>
+
+            <div class="form-group">
+                <label>Year of Study:</label>
+                <input type="number" name="year-of-study" class="form-control" value="" required="" min="1" max="6">
+            </div>
+        
+            <div class="form-group">
+                <label>CNP:</label>
+                <input type="text" name="cnp" class="form-control" value="" required="" minlength="13" maxlength="13" id="cnp">
+            </div>
+       
+            <button type="submit" class="btn btn-success save-btn" >Save</button>
+        </form>
+        <br/>
+
+        <table class="table table-bordered data-table">
+            <thead>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Year of Study</th>
+                <th>CNP</th>
+                
+                <th width="200px">Action</th>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+
+    <script type="text/javascript" src="dynamic.js"> </script>
+
+</body>
+</html>
