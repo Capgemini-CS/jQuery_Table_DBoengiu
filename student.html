@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>JQuery - Add Edit Delete Table Row Example - NiceSnippets.com</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
-   
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+
 </head>
+
 <body>
     <div class="container">
         <h1>Student Management System</h1>
@@ -17,27 +20,30 @@
 
             <div class="form-group">
                 <label>First Name:</label>
-                <input type="text" name="first-name" class="form-control" value="" required="" minlength="2" maxlength="100" id="firstName">
+                <input type="text" name="first-name" class="form-control" value="" required="" minlength="2"
+                    maxlength="100" id="firstName">
             </div>
 
             <div class="form-group">
                 <label>Last Name:</label>
-                <input type="text" name="last-name" class="form-control" value="" required="" minlength="3" maxlength="100" id="lastName">
+                <input type="text" name="last-name" class="form-control" value="" required="" minlength="3"
+                    maxlength="100" id="lastName">
             </div>
 
             <div class="form-group">
                 <label>Year of Study:</label>
                 <input type="number" name="year-of-study" class="form-control" value="" required="" min="1" max="6">
             </div>
-        
+
             <div class="form-group">
                 <label>CNP:</label>
-                <input type="text" name="cnp" class="form-control" value="" required="" minlength="13" maxlength="13" id="cnp">
+                <input type="text" name="cnp" class="form-control" value="" required="" minlength="13" maxlength="13"
+                    id="cnp">
             </div>
-       
-            <button type="submit" class="btn btn-success save-btn" >Save</button>
+
+            <button type="submit" class="btn btn-success save-btn">Save</button>
         </form>
-        <br/>
+        <br />
 
         <table class="table table-bordered data-table">
             <thead>
@@ -46,7 +52,7 @@
                 <th>Last Name</th>
                 <th>Year of Study</th>
                 <th>CNP</th>
-                
+
                 <th width="200px">Action</th>
             </thead>
             <tbody>
@@ -61,5 +67,10 @@
 
     <script type="text/javascript" src="dynamic.js"> </script>
 
+    <script>
+        $("#form").validate();
+    </script>
+
 </body>
+
 </html>
