@@ -171,21 +171,31 @@ $(document).ready(function () {
         });
     }
 
-    function getOneTutorial(id) {
+    function getOneUser(id) {
         $.ajax({
-            url: 'http://localhost:3000/api/tutorials/' + id,
+            url: 'https://gorest.co.in/public/v2/users/' + id,
             method: 'get',
             dataType: 'json',
             success: function (data) {
-                $($("#updateForm")[0].tutId).val(data._id);
-                $($("#updateForm")[0].updateNum).val(data.tutorialNumber);
-                $($("#updateForm")[0].updateTitle).val(data.title);
-                $($("#updateForm")[0].updateAuthor).val(data.author);
-                $($("#updateForm")[0].updateType).val(data.type);
-                $("#updateForm").show();
+                $(data).each(function (i, user) {
+                    $('#second-user-body').append($("<tr>")
+                        .append($("<td>").append(user.id))
+                        .append($("<td>").append(user.name))
+                        .append($("<td>").append(user.email))
+                        .append($("<td>").append(user.gender))
+                        .append($("<td>").append(user.status)));
+                })
+            },
+            error: function () {
+                alert("error");
             }
         });
     }
+
+    $(".btn-get-user").click(function () {
+        getOneUser($(".input-id-get-user").val());
+        console.log("bla-bla");
+    });
 
     function loadButtons() {
         $(".editTut").click(function (e) {
