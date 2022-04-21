@@ -151,7 +151,7 @@ $(document).ready(function () {
     function getStudents() {
         $('#studentsBody').html('');
         $.ajax({
-            url: 'https://agile-caverns-45196.herokuapp.com/students',
+            url: 'https://gorest.co.in/public/v2/users',
             method: 'get',
             dataType: 'json',
             data: {
@@ -160,11 +160,11 @@ $(document).ready(function () {
             success: function (data) {
                 $(data).each(function (i, user) {
                     $('#studentsBody').append($("<tr>")
-                        .append($("<td>").append(student.id))
-                        .append($("<td>").append(student.firstName))
-                        .append($("<td>").append(student.lastName))
-                        .append($("<td>").append(student.yearOfStudy))
-                        .append($("<td>").append(student.cnp)));
+                        .append($("<td>").append(user.id))
+                        .append($("<td>").append(user.name))
+                        .append($("<td>").append(user.email))
+                        .append($("<td>").append(user.gender))
+                        .append($("<td>").append(user.status)));
                 });
                 //loadButtons();
             }
