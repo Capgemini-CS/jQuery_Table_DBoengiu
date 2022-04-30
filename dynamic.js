@@ -1,25 +1,25 @@
-$("form").submit(function(e){
-    e.preventDefault();
-    var id = $("input[name='id']").val();
-    var firstName = $("input[name='first-name']").val();
-    var lastName = $("input[name='last-name']").val();
-    var yearOfStudy = $("input[name='year-of-study']").val();
-    var CNP = $("input[name='cnp']").val();
- 
-    $(".data-table tbody").append("<tr data-id='"+id+"' data-first-name='"+firstName+"' data-last-name='"+lastName+"'  data-year-of-study='"+yearOfStudy+"'  data-cnp='"+CNP+"' ><td>"+id+"</td><td>"+firstName+"</td><td>"+lastName+"</td><td>"+yearOfStudy+"</td><td>"+CNP+"</td><td><button class='btn btn-info btn-xs btn-edit'>Edit</button><button class='btn btn-danger btn-xs btn-delete'>Delete</button></td></tr>");
+// $("form").submit(function(e){
+//     e.preventDefault();
+//     var id = $("input[name='id']").val();
+//     var firstName = $("input[name='first-name']").val();
+//     var lastName = $("input[name='last-name']").val();
+//     var yearOfStudy = $("input[name='year-of-study']").val();
+//     var CNP = $("input[name='cnp']").val();
 
-    $("input[name='id']").val('');
-    $("input[name='first-name']").val('');
-    $("input[name='last-name']").val('');
-    $("input[name='year-of-study']").val('');
-    $("input[name='cnp']").val('');
-});
+//     $(".data-table tbody").append("<tr data-id='"+id+"' data-first-name='"+firstName+"' data-last-name='"+lastName+"'  data-year-of-study='"+yearOfStudy+"'  data-cnp='"+CNP+"' ><td>"+id+"</td><td>"+firstName+"</td><td>"+lastName+"</td><td>"+yearOfStudy+"</td><td>"+CNP+"</td><td><button class='btn btn-info btn-xs btn-edit'>Edit</button><button class='btn btn-danger btn-xs btn-delete'>Delete</button></td></tr>");
 
-$("body").on("click", ".btn-delete", function(){
-    $(this).parents("tr").remove();
-});
+//     $("input[name='id']").val('');
+//     $("input[name='first-name']").val('');
+//     $("input[name='last-name']").val('');
+//     $("input[name='year-of-study']").val('');
+//     $("input[name='cnp']").val('');
+// });
 
-$("body").on("click", ".btn-edit", function(){
+// $("body").on("click", ".btn-delete", function(){
+//     $(this).parents("tr").remove();
+// });
+
+$("body").on("click", ".btn-edit", function () {
     var id = $(this).parents("tr").attr('data-id');
     var firstName = $(this).parents("tr").attr('data-first-name');
 
@@ -27,21 +27,21 @@ $("body").on("click", ".btn-edit", function(){
     var yearOfStudy = $(this).parents("tr").attr('data-year-of-study');
 
     var cnp = $(this).parents("tr").attr('data-cnp');
-    
-    $(this).parents("tr").find("td:eq(0)").html('<input name="edit_id" value="'+id+'">');
-    $(this).parents("tr").find("td:eq(1)").html('<input name="edit_first_name" value="'+firstName+'">');
 
-    $(this).parents("tr").find("td:eq(2)").html('<input name="edit_last_name" value="'+lastName+'">');
-    $(this).parents("tr").find("td:eq(3)").html('<input name="edit_year_of_study" value="'+yearOfStudy+'">');
+    $(this).parents("tr").find("td:eq(0)").html('<input name="edit_id" value="' + id + '">');
+    $(this).parents("tr").find("td:eq(1)").html('<input name="edit_first_name" value="' + firstName + '">');
 
-    $(this).parents("tr").find("td:eq(4)").html('<input name="edit_cnp" value="'+cnp+'">');
-    
+    $(this).parents("tr").find("td:eq(2)").html('<input name="edit_last_name" value="' + lastName + '">');
+    $(this).parents("tr").find("td:eq(3)").html('<input name="edit_year_of_study" value="' + yearOfStudy + '">');
+
+    $(this).parents("tr").find("td:eq(4)").html('<input name="edit_cnp" value="' + cnp + '">');
+
 
     $(this).parents("tr").find("td:eq(5)").prepend("<button class='btn btn-info btn-xs btn-update'>Update</button><button class='btn btn-warning btn-xs btn-cancel'>Cancel</button>")
     $(this).hide();
 });
 
-$("body").on("click", ".btn-cancel", function(){
+$("body").on("click", ".btn-cancel", function () {
     var id = $(this).parents("tr").attr('data-id');
     var firstName = $(this).parents("tr").attr('data-first-name');
 
@@ -49,7 +49,7 @@ $("body").on("click", ".btn-cancel", function(){
     var yearOfStudy = $(this).parents("tr").attr('data-year-of-study');
 
     var cnp = $(this).parents("tr").attr('data-cnp');
-    
+
 
     $(this).parents("tr").find("td:eq(0)").text(id);
     $(this).parents("tr").find("td:eq(1)").text(firstName);
@@ -58,14 +58,14 @@ $("body").on("click", ".btn-cancel", function(){
     $(this).parents("tr").find("td:eq(3)").text(yearOfStudy);
 
     $(this).parents("tr").find("td:eq(4)").text(cnp);
-    
+
 
     $(this).parents("tr").find(".btn-edit").show();
     $(this).parents("tr").find(".btn-update").remove();
     $(this).parents("tr").find(".btn-cancel").remove();
 });
 
-$("body").on("click", ".btn-update", function(){
+$("body").on("click", ".btn-update", function () {
     var id = $(this).parents("tr").find("input[name='edit_id']").val();
     var firstName = $(this).parents("tr").find("input[name='edit_first_name']").val();
 
@@ -73,7 +73,7 @@ $("body").on("click", ".btn-update", function(){
     var yearOfStudy = $(this).parents("tr").find("input[name='edit_year_of_study']").val();
 
     var cnp = $(this).parents("tr").find("input[name='edit_cnp']").val();
-    
+
 
     $(this).parents("tr").find("td:eq(0)").text(id);
     $(this).parents("tr").find("td:eq(1)").text(firstName);
@@ -82,8 +82,8 @@ $("body").on("click", ".btn-update", function(){
     $(this).parents("tr").find("td:eq(3)").text(yearOfStudy);
 
     $(this).parents("tr").find("td:eq(4)").text(cnp);
-   
- 
+
+
     $(this).parents("tr").attr('data-id', id);
     $(this).parents("tr").attr('data-first-name', firstName);
 
@@ -91,7 +91,7 @@ $("body").on("click", ".btn-update", function(){
     $(this).parents("tr").attr('data-year-of-study', yearOfStudy);
 
     $(this).parents("tr").attr('data-cnp', cnp);
-    
+
 
     $(this).parents("tr").find(".btn-edit").show();
     $(this).parents("tr").find(".btn-cancel").remove();
@@ -117,7 +117,7 @@ $("body").on("click", ".btn-update", function(){
 //         maxlength: 13,
 //         digits: true
 //       }
-      
+
 //     },
 //     messages: {
 //         firstName: {
@@ -151,20 +151,22 @@ $(document).ready(function () {
     function getStudents() {
         $('#studentsBody').html('');
         $.ajax({
-            url: 'https://gorest.co.in/public/v2/users',
+            url: 'https://agile-caverns-45196.herokuapp.com/students/',
             method: 'get',
             dataType: 'json',
             data: {
                 test: 'test data'
             },
             success: function (data) {
-                $(data).each(function (i, user) {
+                $(data).each(function (i, student) {
                     $('#studentsBody').append($("<tr>")
-                        .append($("<td>").append(user.id))
-                        .append($("<td>").append(user.name))
-                        .append($("<td>").append(user.email))
-                        .append($("<td>").append(user.gender))
-                        .append($("<td>").append(user.status)));
+                        .append($("<td>").append(student.studentId))
+                        .append($("<td>").append(student.firstName))
+                        .append($("<td>").append(student.lastName))
+                        .append($("<td>").append(student.yearOfStudy))
+                        .append($("<td>").append(student.cnp))
+                        .append($("<td>").append("<button class='btn btn-danger btn-xs btn-delete'>Delete</button>"))
+                    );
                 });
                 //loadButtons();
             }
@@ -173,17 +175,17 @@ $(document).ready(function () {
 
     function getOneUser(id) {
         $.ajax({
-            url: 'https://gorest.co.in/public/v2/users/' + id,
+            url: 'https://agile-caverns-45196.herokuapp.com/students/' + id,
             method: 'get',
             dataType: 'json',
             success: function (data) {
-                $(data).each(function (i, user) {
+                $(data).each(function (i, student) {
                     $('#second-user-body').append($("<tr>")
-                        .append($("<td>").append(user.id))
-                        .append($("<td>").append(user.name))
-                        .append($("<td>").append(user.email))
-                        .append($("<td>").append(user.gender))
-                        .append($("<td>").append(user.status)));
+                        .append($("<td>").append(student.studentId))
+                        .append($("<td>").append(student.firstName))
+                        .append($("<td>").append(student.lastName))
+                        .append($("<td>").append(student.yearOfStudy))
+                        .append($("<td>").append(student.cnp)));
                 })
             },
             error: function () {
@@ -197,15 +199,136 @@ $(document).ready(function () {
         console.log("bla-bla");
     });
 
-    function loadButtons() {
-        $(".editTut").click(function (e) {
-            getOneTutorial($($(this)[0]).data("tutid"));
-            e.preventDefault();
-        });
 
-        $(".deleteTut").click(function (e) {
-            deleteTutorial($($(this)[0]).data("tutid"));
-            e.preventDefault();
-        })
+
+    // function loadButtons() {
+    //     $(".editTut").click(function (e) {
+    //         getOneTutorial($($(this)[0]).data("tutid"));
+    //         e.preventDefault();
+    //     });
+
+    //     $(".deleteTut").click(function (e) {
+    //         deleteTutorial($($(this)[0]).data("tutid"));
+    //         e.preventDefault();
+    //     })
+    // }
+
+
+
+    function deleteUser(id) {
+        $.ajax({
+            url: 'https://agile-caverns-45196.herokuapp.com/students/' + id,
+            method: 'DELETE',
+            dataType: 'json',
+            success: function (data) {
+                console.log(data);
+                getStudents();
+            },
+            error: function () {
+                alert("error");
+            }
+        });
     }
+
+
+
+
+    $("body").on("click", ".btn-delete", function () {
+
+        var id = $(this).closest("tr").find('td:eq(0)').text();
+        deleteUser(id);
+    });
+
+
+
+
+
+
+   
+
+
+
+    // $(".save-btn").on("click", function (e) {
+    //     let data = {
+    //         id: $("#studentId").val(),
+    //         firstName: $("#firstName").val(),
+    //         lastName: $("#lastName").val(),
+    //         yearOfStudy: $("#yearOfStudy").val(),
+    //         cnp: $("#cnp").val()
+    //     }
+    //     console.log(data);
+    //     postUser(data);
+    // });
+
+    function postUser(data) {
+        console.log(data);
+        $.ajax({
+            url: 'https://agile-caverns-45196.herokuapp.com/students/',
+            // myData: JSON.stringify(data), 
+            method: 'POST',
+            dataType: 'json',
+            success: function (data) {
+                console.log(data);
+
+
+                getStudents();
+            },
+            error: function () {
+                alert("post error");
+            }
+        });
+    }
+
+
+
+    $("body").on("click", ".save-btn", function (e) {
+        // let data = {
+        //     id: $("#studentId").val(),
+        //     firstName: $("#firstName").val(),
+        //     lastName: $("#lastName").val(),
+        //     yearOfStudy: $("#yearOfStudy").val(),
+        //     cnp: $("#cnp").val()
+        // }
+
+
+        let data = {
+            id: $($("#form")[0].studentId).val(),
+            firstName: $($("#form")[0].firstName).val(),
+            lastName: $($("#form")[0].lastName).val(),
+            yearOfStudy: $($("#form")[0].yearOfStudy).val(),
+            cnp: $($("#form")[0].cnp).val()
+        } 
+
+        // var x = $("#form").serializeArray();
+        // $.each(x, function (i, field) {
+        //     alert(field.name + " : " + field.value + " ");
+        // });
+
+        console.log(data);
+        postUser(data);
+
+        $("#form").trigger("reset");
+         $("#form").toggle();
+         e.preventDefault();
+    });
+
+
+    // $('.save-btn').click(function(){
+
+    //     $.post('https://agile-caverns-45196.herokuapp.com/students/',   // url
+    //     myData = {
+    //         id: $("#studentId").val(),
+    //         firstName: $("#firstName").val(),
+    //         lastName: $("#lastName").val(),
+    //         yearOfStudy: $("#yearOfStudy").val(),
+    //         cnp: $("#cnp").val()
+    //     }, // data to be submit
+    //        function(data, status, jqXHR) {// success callback
+    //                 $('p').append('status: ' + status + ', data: ' + data);
+    //         }).done(function() { alert('Request done!'); })
+    //           .fail(function(jqxhr, settings, ex) { alert('failed, ' + ex); });
+
+
+    //     });
+
 });
